@@ -25,6 +25,6 @@ Ohai.plugin(:Platform) do
     platform kernel[:name]
     platform_version [kernel[:version], kernel[:release]].join(".")
     platform_family platform
-    platform_patchlevel shell_out(oslevel -s)
+    platform_patchlevel shell_out("oslevel -s")
   end
 end
