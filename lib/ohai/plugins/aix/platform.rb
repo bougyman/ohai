@@ -17,6 +17,7 @@
 #
 
 Ohai.plugin(:Platform) do
+  require Mixin::ShellOut
   provides "platform", "platform_version", "platform_family", "platform_patchlevel"
   depends "kernel"
 
