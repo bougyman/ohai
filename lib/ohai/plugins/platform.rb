@@ -17,12 +17,13 @@
 #
 
 Ohai.plugin(:Platform) do
-  provides "platform", "platform_version", "platform_family"
+  provides "platform", "platform_version", "platform_family", "platform_patchlevel"
   depends "os", "os_version"
 
   collect_data(:default) do
     platform os unless attribute?("platform")
     platform_version os_version unless attribute?("platform_version")
     platform_family platform unless attribute?("platform_family")
+    platform_patchlevel platform_version unless attribute?("platform_patchlevel")
   end
 end

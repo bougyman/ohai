@@ -17,12 +17,13 @@
 #
 
 Ohai.plugin(:Platform) do
-  provides "platform", "platform_version", "platform_family"
+  provides "platform", "platform_version", "platform_family", "platform_patchlevel"
   depends "kernel"
 
   collect_data(:aix) do
     platform kernel[:name]
     platform_version [kernel[:version], kernel[:release]].join(".")
     platform_family platform
+    platform_patchlevel %x{oslevel -s}
   end
 end
